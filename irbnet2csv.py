@@ -280,8 +280,6 @@ if __name__ == "__main__":
     if opts['outfile']:
         ext = os.path.splitext(opts['outfile'])[-1]
 
-        logging.debug(ext)
-
         if ext == ".csv":
             write_csv(projects, opts['outfile'])
         elif ext == ".json":
