@@ -246,6 +246,7 @@ if __name__ == "__main__":
 
     opts = parse_args()
 
+    # for testing:
     # with open('secrets.yml', 'r') as f:
     #     secrets = yaml.load(f)
     #     opts = secrets['opts']
@@ -279,11 +280,13 @@ if __name__ == "__main__":
     if opts['outfile']:
         ext = os.path.splitext(opts['outfile'])[-1]
 
-        if ext == "csv":
+        logging.debug(ext)
+
+        if ext == ".csv":
             write_csv(projects, opts['outfile'])
-        elif ext == "json":
+        elif ext == ".json":
             write_json(projects, opts['outfile'])
-        elif ext == "yml" or ext == "yaml":
+        elif ext == ".yml" or ext == ".yaml":
             write_yaml(projects, opts['outfile'])
         else:
             logging.warn("Unknown format {}".format(ext))
